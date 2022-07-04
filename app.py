@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from datetime import datetime
 import os
 
-cluster = MongoClient('Database_url')
+cluster = MongoClient('mongodb+srv://Tonysmile:iam.123.purple@cluster0.cwi8j.mongodb.net/?retryWrites=true&w=majority')
 
 db = cluster['Bakery']
 users = db['User']
