@@ -1,7 +1,6 @@
 from decouple import config
 import time
 from flask import Flask, request
-from gridfs import Database
 from twilio.twiml.messaging_response import MessagingResponse
 from pymongo import MongoClient
 from datetime import datetime
@@ -21,7 +20,7 @@ def reply():
     res = MessagingResponse()
     text = request.form.get('Body')
     number = request.form.get('From')
-    number = number.replace('whatsapp', '')
+    #number = number.replace('whatsapp', '')
     img = 'https://drive.google.com/file/d/1SmydZgK__IVu_wspT27AO9vu8fCIFIPC/view?usp=drivesdk'
     img = img.replace('file/d/', 'uc?export=view&id=').replace('/view?usp=drivesdk','')
   
