@@ -21,7 +21,7 @@ def reply():
     text = request.form.get('Body')
     number = request.form.get('From')
    
-    img = 'https://drive.google.com/file/d/1SmydZgK__IVu_wspT27AO9vu8fCIFIPC/view?usp=drivesdk'
+    img = 'https://drive.google.com/file/d/1F0zgf3WgsAQoEakLYOtgYoloSTZ4o8m7/view?usp=drivesdk'
     img = img.replace('file/d/', 'uc?export=view&id=').replace('/view?usp=drivesdk','')
   
     user = users.find_one({"number": number})
