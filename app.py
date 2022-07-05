@@ -19,8 +19,8 @@ app = Flask(__name__)
 def reply():
     res = MessagingResponse()
     text = request.form.get('Body')
-    number = request.form.get('From')
-    number = number.replace('whatsapp', '')
+    number = request.form.get('From').replace('whatsapp', '')
+   
     img = 'https://drive.google.com/file/d/1SmydZgK__IVu_wspT27AO9vu8fCIFIPC/view?usp=drivesdk'
     img = img.replace('file/d/', 'uc?export=view&id=').replace('/view?usp=drivesdk','')
   
