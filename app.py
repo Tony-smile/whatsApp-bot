@@ -104,6 +104,6 @@ def reply():
              {"number": number}, {"$set": {"status": "main"}})
     users.update_one({"number":number}, {"$push": {"messages":{"text" : text, "date": datetime.now().strftime('%I:%M%p:%A, %d %b %Y.')}}})
     return str(res)
-if __name__=="__app__":
+if __name__=="__main__":
     app.run()
     
