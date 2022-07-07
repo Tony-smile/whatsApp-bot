@@ -3,7 +3,6 @@ from flask import Flask, request
 from pymongo import MongoClient
 from datetime import datetime
 import os
-import base64
 import decouple
 
 cluster = MongoClient('mongodb+srv://Tonysmile:iam.123.purple@cluster0.cwi8j.mongodb.net/?retryWrites=true&w=majority')
