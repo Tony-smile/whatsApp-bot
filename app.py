@@ -3,6 +3,7 @@ from flask import Flask, request
 from pymongo import MongoClient
 from datetime import datetime
 import os
+import dotenv
 import decouple
 
 cluster = MongoClient('mongodb+srv://Tonysmile:iam.123.purple@cluster0.cwi8j.mongodb.net/?retryWrites=true&w=majority')
@@ -103,6 +104,7 @@ def reply():
              {"number": number}, {"$set": {"status": "main"}})
     users.update_one({"number":number}, {"$push": {"messages":{"text" : text, "date": datetime.now().strftime('%I:%M%p:%A, %d %b %Y.')}}})
     return str(res)
-if __name__ == '__app__':
-   app.run()
+if __name__=="__main__":
+    app.run(host=os.getenv('IP', '0.0.0.0'), 
+port=int(os.getenv('PORT', 4444)))
     
