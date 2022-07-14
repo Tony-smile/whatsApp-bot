@@ -18,6 +18,7 @@ app = Flask(__name__)
 
 def reply():
     res = {"reply": ""}
+   
     text = request.form.get('message')
     number = request.form.get('sender')
    
@@ -29,7 +30,7 @@ def reply():
         res ["reply"] += '\n' +("Hi, thanks for contacting *Chizzy Cakes😂*.\nYou can choose from one of the options below: "
                     "\n\n*Type*\n\n  1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
                     "To get our *address*")
-       # res ["reply"].media("https://i.ibb.co/BPKnXVP/Red-Velvet-Cake-Waldorf-Astoria.jpg")
+       # res.reply.media("https://i.ibb.co/BPKnXVP/Red-Velvet-Cake-Waldorf-Astoria.jpg")
         users.insert_one({"number": number, "status": "main", "messages": []})
     
     elif user["status"] == "main":
@@ -41,7 +42,7 @@ def reply():
         if option ==1:
             res ["reply"] += '\n' +(
                     "💁 *Need More Info?*\nYou can contact us through phone or e-mail.\n\n📲 *Phone*: +2349032570130 or +2348058472265 \n📧 *E-mail* : anthonyugwuja.dev@gmail.com")
-            #res.media(img)
+           # res ["reply"] += '\n' +(img)
         elif option == 2:
             res ["reply"] += '\n' +("You have entered *ordering mode*😄.")
             users.update_one({"number": number}, {"$set":{"status": "ordering"}})
@@ -52,7 +53,7 @@ def reply():
         elif option == 3:
             res ["reply"] += '\n' +("⏲️We work from *9 a.m. to 5 p.m*. Daily")
           
-            res["reply"]+('https://raw.githubusercontent.com/Tony-smile/images-icons/master/images/twittercoverpage.png')
+           # res["reply"].media_url('https://raw.githubusercontent.com/Tony-smile/images-icons/master/images/twittercoverpage.png')
     
         elif option == 4:
             res ["reply"] += '\n' +(
@@ -99,7 +100,7 @@ def reply():
         res ["reply"] += '\n' +("Hi, thanks for contacting again😅.\nYou can choose from one of the options below: "
                      "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
                      "To get our *address*")
-       # res.media("https://i.ibb.co/BPKnXVP/Red-Velvet-Cake-Waldorf-Astoria.jpg")
+        #res ["reply"] += '\n' +("https://i.ibb.co/BPKnXVP/Red-Velvet-Cake-Waldorf-Astoria.jpg")
         users.update_one(
              {"number": number}, {"$set": {"status": "main"}})
     users.update_one({"number":number}, {"$push": {"messages":{"text" : text, "date": datetime.now().strftime('%I:%M%p:%A, %d %b %Y.')}}})
